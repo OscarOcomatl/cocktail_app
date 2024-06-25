@@ -8,7 +8,7 @@ class CocktailsSlider extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 180,
-      color: Colors.red,
+      // color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
