@@ -21,8 +21,11 @@ class CocktailsProvider extends ChangeNotifier {
   getOrdinaryCocktails() async {
     final jsonData = await _getJsonData('/api/json/v1/1/filter.php');
     final cocktailsResponse = Cocktail.fromJson(jsonData);
+    // print(cocktailsResponse); // Estos comentarios si sirven para identificar la data
     drinks = cocktailsResponse.drinks;
     notifyListeners();
+    // drinks = cocktailsResponse.drinks;
+    // notifyListeners();
   }
 
 }
