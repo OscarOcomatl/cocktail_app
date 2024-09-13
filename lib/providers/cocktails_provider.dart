@@ -13,6 +13,8 @@ class CocktailsProvider extends ChangeNotifier {
   }
 
   Future<String> _getJsonData(String endpoint) async {
+    // final url = Uri.https(_baseUrl, endpoint);
+    // final url = '${_baseUrl}filter.php?$endpoint';
     final url = Uri.https(_baseUrl, endpoint, {'c':'Ordinary_Drink'});
     final response = await http.get(url);
     return response.body;
@@ -20,8 +22,9 @@ class CocktailsProvider extends ChangeNotifier {
 
   getOrdinaryCocktails() async {
     final jsonData = await _getJsonData('/api/json/v1/1/filter.php');
+    // print(jsonData);
     final cocktailsResponse = Cocktail.fromJson(jsonData);
-    // print(cocktailsResponse); // Estos comentarios si sirven para identificar la data
+    // print(cocktailsResponse);
     drinks = cocktailsResponse.drinks;
     notifyListeners();
     // drinks = cocktailsResponse.drinks;
